@@ -28,7 +28,7 @@ void DriveWithJoysticks::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void DriveWithJoysticks::Execute() {
-	float x = Robot::oi->getm_rightJoystick()->GetX();
+	float x = Robot::oi->getm_leftJoystick()->GetX();
 	float y = Robot::oi->getm_rightJoystick()->GetY();
 	float rotation = Robot::oi->getm_rightJoystick()->GetTwist();
 
