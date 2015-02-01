@@ -28,12 +28,16 @@ Chassis::Chassis() : Subsystem("Chassis") {
 	drive->SetExpiration(0.1);
 	drive->SetSensitivity(0.5);
 	drive->SetMaxOutput(1.0);
+
+	vc = new VisionClient();
+	vc->Start();
 }
 
 Chassis::~Chassis() {
 	if(m_leftMotor) {delete(m_leftMotor);}
 	if(m_rightMotor) {delete(m_rightMotor);}
 	if(drive) {delete(drive);}
+	if(vc) {delete(vc);}
 }
 
 void Chassis::InitDefaultCommand() {
