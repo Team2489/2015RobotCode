@@ -37,7 +37,7 @@ void VisionClient::Run(void)
 			if (debug) {
 				cout << "Client is reading." << endl;
 			}
-			client->Send((TCPClient::Request)htonl(10));
+			client->Send(TCPClient::PULL);
 			client->Receive(&direc);
 		}
 		else {
@@ -86,7 +86,15 @@ VisionClient::VisionClient(void)
 	m_enabled = true;
 	pthread_mutex_init(&data_mutex, NULL);
 	m_task = new Task("2489VisionClient", (FUNCPTR)MainLoop);
-	client = new TCPClient("10.24.89.15");
+	m_retval = 0;
+	m_distance = 0;
+
+	if(TESTERBOT) {
+		client = new TCPClient("10.98.42.5");
+	} else {
+		client = new TCPClient("10.24.89.15");
+	}
+
 	cout << "VisionClient::VisionClient: m_enabled = " << m_enabled << endl;
 }
 
