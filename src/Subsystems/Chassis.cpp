@@ -30,6 +30,7 @@ Chassis::Chassis() : Subsystem("Chassis") {
 	drive->SetMaxOutput(1.0);
 }
 
+//Destructor for the Chassis subsystem
 Chassis::~Chassis() {
 	if(m_leftMotor) {delete(m_leftMotor);}
 	if(m_rightMotor) {delete(m_rightMotor);}
