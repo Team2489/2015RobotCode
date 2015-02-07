@@ -29,10 +29,10 @@ void RobotMap::init() {
 	chassisFrontLeftMotor = new Talon(0);
 	lw->AddActuator("Chassis", "leftMotor", (Talon*) chassisFrontLeftMotor);
 
-	chassisFrontRightMotor = new Talon(1);
+	chassisFrontRightMotor = new Talon(2);
 	lw->AddActuator("Chassis", "rightMotor", (Talon*) chassisFrontRightMotor);
 	
-	chassisBackLeftMotor = new Talon(2);
+	chassisBackLeftMotor = new Talon(1);
 	lw->AddActuator("Chassis", "leftMotor", (Talon*) chassisBackLeftMotor);
 
 	chassisBackRightMotor = new Talon(3);
