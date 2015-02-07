@@ -22,9 +22,17 @@ void CenterOnTote::Execute()
 {
 	std::cout << "Distance: " << Robot::tc->GetDistance() << std::endl;
 	if(Robot::tc->GetDistance() < -10) {
-		Robot::chassis->tankDrive(.7, .7);
+		Robot::chassis->tankDrive(.4, .4);
+		if (Robot::tc->GetDistance() > -25) {
+			Robot::chassis->tankDrive(.3, .3);
+		}
 	} else if (Robot::tc->GetDistance() > 10){
-		Robot::chassis->tankDrive(-.7, -.7);
+		Robot::chassis->tankDrive(-.4, -.4);
+		if (Robot::tc->GetDistance() > -25) {
+			Robot::chassis->tankDrive(-.3, -.3);
+		}
+	} else {
+		Robot::chassis->tankDrive(0, 0);
 	}
 }
 
@@ -51,6 +59,6 @@ bool CenterOnTote::anyMotion() {
 	Joystick *leftJoystick = Robot::oi->getm_rightJoystick();
 	Joystick *rightJoystick = Robot::oi->getm_leftJoystick();
 
-	return ((leftJoystick->GetX() > .5) || (leftJoystick->GetY() > .5) ||
-			(rightJoystick->GetX() > .5) || (rightJoystick->GetY() > .5));
+	return ((abs(leftJoystick->GetX()) > .2) || (abs(leftJoystick->GetY()) > .2) ||
+			(abs(rightJoystick->GetX()) > .2) || (abs(rightJoystick->GetY()) > .2));
 }
