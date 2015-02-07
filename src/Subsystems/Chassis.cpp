@@ -54,6 +54,10 @@ void Chassis::InitDefaultCommand() {
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
 
+void Chassis::MecanumDrive_Polar(float magnitude, float direction, float rotation){
+	drive->MecanumDrive_Polar(magnitude, direction, rotation);
+}
+
 void Chassis::MecanumDrive_Cartesian(float x, float y, float rotation){
 	drive->MecanumDrive_Cartesian(x, y, rotation);
 }

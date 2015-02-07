@@ -28,11 +28,11 @@ void DriveWithJoysticks::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void DriveWithJoysticks::Execute() {
-	float x = Robot::oi->getm_leftJoystick()->GetX();
-	float y = Robot::oi->getm_rightJoystick()->GetY();
-	float rotation = Robot::oi->getm_rightJoystick()->GetTwist();
+	float magnitude = Robot::oi->getm_rightJoystick()->GetY();
+	float direction = Robot::oi->getm_rightJoystick()->GetX();
+	float rotation = Robot::oi->getm_leftJoystick()->GetTwist();
 
-	Robot::chassis->MecanumDrive_Cartesian(x, y, rotation);
+	Robot::chassis->MecanumDrive_Polar(magnitude, direction, rotation);
 }
 
 // Make this return true when this Command no longer needs to run execute()
