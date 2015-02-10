@@ -31,6 +31,8 @@ Chassis::Chassis() : Subsystem("Chassis") {
 	drive->SetExpiration(0.1);
 	drive->SetSensitivity(0.5);
 	drive->SetMaxOutput(1.0);
+	drive->SetInvertedMotor(RobotDrive::kFrontRightMotor,true);
+	drive->SetInvertedMotor(RobotDrive::kRearRightMotor,true);
 }
 
 Chassis::~Chassis() {
