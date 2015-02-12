@@ -22,17 +22,17 @@ void CenterOnTote::Execute()
 {
 	std::cout << "Distance: " << Robot::tc->GetDistance() << std::endl;
 	if(Robot::tc->GetDistance() < -10) {
-		Robot::chassis->tankDrive(.4, .4);
+		Robot::chassis->MecanumDrive_Cartesian(.4,0,0);
 		if (Robot::tc->GetDistance() > -25) {
-			Robot::chassis->tankDrive(.3, .3);
+			Robot::chassis->MecanumDrive_Cartesian(.3,0,0);
 		}
 	} else if (Robot::tc->GetDistance() > 10){
-		Robot::chassis->tankDrive(-.4, -.4);
+		Robot::chassis->MecanumDrive_Cartesian(-.4,0,0);
 		if (Robot::tc->GetDistance() > -25) {
-			Robot::chassis->tankDrive(-.3, -.3);
+			Robot::chassis->MecanumDrive_Cartesian(-.3,0,0);
 		}
 	} else {
-		Robot::chassis->tankDrive(0, 0);
+		Robot::chassis->MecanumDrive_Cartesian(0,0,0);
 	}
 }
 

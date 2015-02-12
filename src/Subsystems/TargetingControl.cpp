@@ -3,8 +3,8 @@
 
 TargetingControl::TargetingControl() : Subsystem("TargetingControl") {
 	printf(__FUNCTION__);
-	vc = new VisionClient();
-	vc->Start();
+	m_vc = new VisionClient();
+	m_vc->Start();
 }
 
 void TargetingControl::InitDefaultCommand() {
@@ -16,14 +16,14 @@ void TargetingControl::InitDefaultCommand() {
 double TargetingControl::GetDistance() {
 	// Set the default command for a subsystem here.
 	//SetDefaultCommand(new MySpecialCommand());
-	double d;
-	int dstate;
-	vc->GetState(&d, &dstate);
+	double d = 0;
+	int dstate = 0;
+	m_vc->GetState(&d, &dstate);
 	return d;
 }
 
 TargetingControl::~TargetingControl() {
-	if(vc) {delete(vc);}
+	if(m_vc) {delete(m_vc);}
 }
 
 
