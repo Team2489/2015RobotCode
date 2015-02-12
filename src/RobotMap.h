@@ -14,7 +14,7 @@
 #include "WPILib.h"
 
 //Do not commit it defined, for testbot only
-#define TESTERBOT 1
+#define TESTERBOT 0
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into

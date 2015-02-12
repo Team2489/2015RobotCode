@@ -92,7 +92,7 @@ VisionClient::VisionClient(void)
 	if(TESTERBOT) {
 		client = new TCPClient("10.98.42.5");
 	} else {
-		client = new TCPClient("10.24.89.15");
+		client = new TCPClient("10.24.89.5");
 	}
 
 	cout << "VisionClient::VisionClient: m_enabled = " << m_enabled << endl;
