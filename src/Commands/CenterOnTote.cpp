@@ -59,6 +59,6 @@ bool CenterOnTote::anyMotion() {
 	Joystick *leftJoystick = Robot::oi->getm_rightJoystick();
 	Joystick *rightJoystick = Robot::oi->getm_leftJoystick();
 
-	return ((abs(leftJoystick->GetX()) > .2) || (abs(leftJoystick->GetY()) > .2) ||
-			(abs(rightJoystick->GetX()) > .2) || (abs(rightJoystick->GetY()) > .2));
+	return ((abs(leftJoystick->GetX()) > .1) || (abs(leftJoystick->GetY()) > .1) ||
+			(abs(rightJoystick->GetX()) > .1) || (abs(rightJoystick->GetY()) > .1));
 }

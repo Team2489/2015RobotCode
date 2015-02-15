@@ -16,6 +16,8 @@
 #include "Commands/AutonomousCommand.h"
 #include "Commands/DriveWithJoysticks.h"
 #include "Commands/CenterOnTote.h"
+#include "Commands/WinchUpDown.h"
+
 
 
 
@@ -31,11 +33,17 @@ OI::OI() {
 	
 	m_leftJoystick = new Joystick(0);
 	
-	m_rightButton10 = new JoystickButton(m_rightJoystick, 2);
 
+	// Button initialization
+	m_rightButton10 = new JoystickButton(m_rightJoystick, 10);
+
+	m_gamePadButtonA = new JoystickButton(m_gamepad, 2);
+	m_gamePadButtonY = new JoystickButton(m_gamepad, 4);
+	// Button use
 	m_rightButton10->WhenPressed(new CenterOnTote());
 
-
+	m_gamePadButtonA->WhileHeld(new WinchUpDown(false, 0.2));
+	m_gamePadButtonY->WhileHeld(new WinchUpDown(true, 0.2));
 
      
 
