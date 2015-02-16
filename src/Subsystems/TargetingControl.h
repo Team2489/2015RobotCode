@@ -8,7 +8,7 @@
 class TargetingControl: public Subsystem
 {
 private:
-	VisionClient* vc;
+	VisionClient* m_vc;
 	// everything possible under private except
 	// for methods that implement subsystem capabilities
 public:
