@@ -20,6 +20,7 @@ private:
 	
 	TCPClient *client;
 	
+	pthread_mutex_t data_mutex;
 	bool m_enabled; // We are running
 	Task *m_task; // task doing the round-robin communication
 

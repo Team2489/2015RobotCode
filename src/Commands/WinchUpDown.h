@@ -9,8 +9,9 @@ class WinchUpDown: public Command
 private:
 	bool m_isUp;
 	double m_timeout;
+	double m_power;
 public:
-	WinchUpDown(bool isUp, double timeout);
+	WinchUpDown(bool isUp, double timeout, double power);
 	void Initialize();
 	void Execute();
 	bool IsFinished();

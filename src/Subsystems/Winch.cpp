@@ -16,14 +16,14 @@ void Winch::InitDefaultCommand()
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
 
-void Winch::MoveUp()
+void Winch::MoveUp(float speed)
 {
-	m_winchTalon->Set(1.0);
+	m_winchTalon->Set(-speed);
 }
 
-void Winch::MoveDown()
+void Winch::MoveDown(float speed)
 {
-	m_winchTalon->Set(-1.0);
+	m_winchTalon->Set(speed);
 }
 
 void Winch::Stop()

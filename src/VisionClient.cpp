@@ -3,7 +3,6 @@
 #include <Timer.h>
 #include <iostream>
 
-pthread_mutex_t data_mutex;
 
 static const unsigned int debug = 0;
 

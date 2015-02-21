@@ -41,11 +41,15 @@ OI::OI() {
 
 	m_gamePadButtonA = new JoystickButton(m_gamepad, 2);
 	m_gamePadButtonY = new JoystickButton(m_gamepad, 4);
+	m_gamePadButtonX = new JoystickButton(m_gamepad, 3);
+
 	// Button use
 	m_rightButton10->WhenPressed(new CenterOnTote());
 
-	m_gamePadButtonA->WhileHeld(new WinchUpDown(false, 0.2));
-	m_gamePadButtonY->WhileHeld(new WinchUpDown(true, 0.2));
+	m_gamePadButtonA->WhileHeld(new WinchUpDown(false, 0.2, 0.3));
+	m_gamePadButtonY->WhileHeld(new WinchUpDown(true, 0.2, 1.0));
+	m_gamePadButtonX->WhileHeld(new WinchUpDown(true, 0.2, 0.3));
+
 
      
 

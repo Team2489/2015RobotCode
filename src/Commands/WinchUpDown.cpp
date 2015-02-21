@@ -2,13 +2,14 @@
 #include "../Robot.h"
 #include "../Subsystems/Winch.h"
 
-WinchUpDown::WinchUpDown(bool isUp, double timeout)
+WinchUpDown::WinchUpDown(bool isUp, double timeout, double power)
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
 	Requires(Robot::winch);
 	m_isUp = isUp;
 	m_timeout = timeout;
+	m_power = power;
 }
 
 // Called just before this Command runs the first time
@@ -23,9 +24,9 @@ void WinchUpDown::Initialize()
 void WinchUpDown::Execute()
 {
 	if(m_isUp) {
-		Robot::winch->MoveUp();
+		Robot::winch->MoveUp(m_power);
 	} else {
-		Robot::winch->MoveDown();
+		Robot::winch->MoveDown(m_power);
 	}
 }
 

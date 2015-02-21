@@ -10,8 +10,8 @@ private:
 	Talon *m_winchTalon;
 public:
 	Winch();
-	void MoveUp();
-	void MoveDown();
+	void MoveUp(float speed);
+	void MoveDown(float speed);
 	void Stop();
 	void InitDefaultCommand();
 };
