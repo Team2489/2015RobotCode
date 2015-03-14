@@ -30,7 +30,7 @@ typedef uint32_t UINT32;
 #define REPLY_MSG_SIZE          500    /* max size of reply message */ 
 
 //16 bytes
-typedef struct directions{
+struct directions{
     int diterror;
     int status;
 };
