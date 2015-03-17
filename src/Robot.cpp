@@ -67,6 +67,8 @@ void Robot::AutonomousInit() {
 
 void Robot::AutonomousPeriodic() {
 	Scheduler::GetInstance()->Run();
+	Robot::oi->PrintElevatorPowerValue();
+	Robot::oi->PrintAutoMode();
 }
 
 void Robot::TeleopInit() {
@@ -82,6 +84,8 @@ void Robot::TeleopInit() {
 
 void Robot::TeleopPeriodic() {
 	Scheduler::GetInstance()->Run();
+	Robot::oi->PrintElevatorPowerValue();
+	Robot::oi->PrintAutoMode();
 }
 
 void Robot::TestPeriodic() {
