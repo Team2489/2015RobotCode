@@ -33,8 +33,6 @@ void DriveWithJoysticks::Execute() {
 	float rotation = Robot::oi->getm_leftJoystick()->GetX();
 
 	Robot::chassis->MecanumDrive_Cartesian(x, y, rotation);
-
-	Robot::oi->PrintElevatorPowerValue();
 }
 
 // Make this return true when this Command no longer needs to run execute()
