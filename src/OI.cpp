@@ -57,14 +57,17 @@ OI::OI() {
 	m_gamePadButtonA = new JoystickButton(m_gamepad, 2);
 	m_gamePadButtonY = new JoystickButton(m_gamepad, 4);
 	m_gamePadButtonX = new JoystickButton(m_gamepad, 3);
+	m_gamePadButtonB = new JoystickButton(m_gamepad, 5);
 
 	// Joystick button use
 	m_rightButton10->WhenPressed(new CenterOnTote());
 
 	// GamePad button use
-	m_gamePadButtonA->WhileHeld(new WinchUpDown(false, 0.2, .35));	//goes down
-	m_gamePadButtonY->WhileHeld(new WinchUpDown(true, 0.2, Robot::oi->GetElevatorPower()));	//goes up
+
 	m_gamePadButtonX->WhileHeld(new WinchUpDown(true, 0.2, 0.3));	//goes up
+	m_gamePadButtonY->WhileHeld(new WinchUpDown(true, 0.2, 0));		//goes up
+	m_gamePadButtonA->WhileHeld(new WinchUpDown(false, 0.2, .35));	//goes down
+	m_gamePadButtonB->WhileHeld(new WinchUpDown(false, 0.2, 0));	//goes down
 
 	// LaunchPad button initialization
 //	m_easyButton = new JoystickButton(m_launchPad, 1);

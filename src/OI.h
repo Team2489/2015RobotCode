@@ -29,6 +29,7 @@ private:
 	JoystickButton* m_gamePadButtonA;
 	JoystickButton* m_gamePadButtonY;
 	JoystickButton* m_gamePadButtonX;
+	JoystickButton* m_gamePadButtonB;
 
 public:
 	OI();

@@ -23,10 +23,15 @@ void WinchUpDown::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void WinchUpDown::Execute()
 {
+	int temp_power = m_power;
+
 	if(m_isUp) {
-		Robot::winch->MoveUp(m_power);
+		Robot::winch->MoveUp(temp_power);
 	} else {
-		Robot::winch->MoveDown(m_power);
+		Robot::winch->MoveDown(temp_power);
+	}
+	if (temp_power == 0) {
+		temp_power = Robot::oi->GetElevatorPower();
 	}
 }
 
