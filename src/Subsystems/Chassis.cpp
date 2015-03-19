@@ -51,6 +51,7 @@ Chassis::Chassis() : Subsystem("Chassis") {
 	drive->SetInvertedMotor(RobotDrive::kRearRightMotor,true);
 }
 
+//Destructor for the Chassis subsystem
 Chassis::~Chassis() {
 	if(m_frontLeftMotor) {delete(m_frontLeftMotor);}
 	if(m_frontRightMotor) {delete(m_frontRightMotor);}

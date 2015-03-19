@@ -92,5 +92,5 @@ bool CenterOnTote::anyMotion() {
 	Joystick *rightJoystick = Robot::oi->getm_leftJoystick();
 
 	return ((abs(leftJoystick->GetX()) > .1) || (abs(leftJoystick->GetY()) > .1) ||
-			(abs(rightJoystick->GetX()) > .1) || (abs(rightJoystick->GetY()) > .1) || leftJoystick->GetRawButton(STOPALIGNBUTTON));
+			(abs(rightJoystick->GetX()) > .1) || (abs(rightJoystick->GetY()) > .1) || leftJoystick->GetRawButton(STOP_ALIGN_BUTTON));
 }
