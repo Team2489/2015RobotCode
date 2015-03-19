@@ -62,9 +62,14 @@ OI::OI() {
 	m_rightButton10->WhenPressed(new CenterOnTote());
 
 	// GamePad button use
-	m_gamePadButtonA->WhileHeld(new WinchUpDown(false, 0.2, 0.3));
-	m_gamePadButtonY->WhileHeld(new WinchUpDown(true, 0.2, 1.0));
-	m_gamePadButtonX->WhileHeld(new WinchUpDown(true, 0.2, 0.3));
+	m_gamePadButtonA->WhileHeld(new WinchUpDown(false, 0.2, .35));	//goes down
+	m_gamePadButtonY->WhileHeld(new WinchUpDown(true, 0.2, Robot::oi->GetElevatorPower()));	//goes up
+	m_gamePadButtonX->WhileHeld(new WinchUpDown(true, 0.2, 0.3));	//goes up
+
+	// LaunchPad button initialization
+//	m_easyButton = new JoystickButton(m_launchPad, 1);
+
+	// LaunchPad button use
 
 	// SmartDashboard Buttons
 	SmartDashboard::PutData("Autonomous Command", new AutonomousCommand());

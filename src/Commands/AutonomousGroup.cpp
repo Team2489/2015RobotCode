@@ -5,6 +5,7 @@
 #include <Commands/MoveUntilToteView.h>
 #include <Commands/MoveSideways.h>
 
+// Three tote autonomous
 AutonomousGroup::AutonomousGroup()
 {
 	AddSequential(new WinchTotesHigh(1));
