@@ -40,6 +40,8 @@ Chassis::Chassis() : Subsystem("Chassis") {
 
 	m_gyro = RobotMap::chassisGyro;
 
+	m_leftProximitySensor = RobotMap::chassisLeftProximitySensor;
+
 	drive = new RobotDrive(m_frontLeftMotor, m_backLeftMotor, m_frontRightMotor, m_backRightMotor);
 	drive->SetSafetyEnabled(false);
 	drive->SetExpiration(0.1);
@@ -59,6 +61,7 @@ Chassis::~Chassis() {
 	if(m_backLeftEncoder) {delete(m_backLeftEncoder);}
 	if(m_backRightEncoder) {delete(m_backRightEncoder);}
 	if(m_gyro) {delete(m_gyro);}
+	if(m_leftProximitySensor) {delete(m_leftProximitySensor);}
 	if(drive) {delete(drive);}
 }
 
@@ -85,4 +88,8 @@ void Chassis::MecanumDrive_Cartesian(float x, float y, float rotation){
 	std::cout << "BR: " << m_backRightEncoder->GetRate() << std::endl;
 
 	drive->MecanumDrive_Cartesian(x, y, rotation);
+}
+
+bool Chassis::ProximitySensorIsTriggered() {
+	return m_leftProximitySensor->Get();
 }

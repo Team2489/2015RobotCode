@@ -27,6 +27,8 @@ Encoder* RobotMap::chassisFrontRightEncoder = NULL;
 Encoder* RobotMap::chassisBackLeftEncoder = NULL;
 Encoder* RobotMap::chassisBackRightEncoder = NULL;
 
+DigitalInput* RobotMap::chassisLeftProximitySensor = NULL;
+
 PIDController* RobotMap::chassisFrontLeftMotorPID = NULL;
 PIDController* RobotMap::chassisFrontRightMotorPID = NULL;
 PIDController* RobotMap::chassisBackLeftMotorPID = NULL;
@@ -35,6 +37,9 @@ PIDController* RobotMap::chassisBackRightMotorPID = NULL;
 Talon* RobotMap::winchtalon = NULL;
 
 Gyro* RobotMap::chassisGyro = NULL;
+
+Encoder* RobotMap::winchEncoder = NULL;
+PIDController* RobotMap::winchEncoderPID = NULL;
 
 BuiltInAccelerometer* RobotMap::navigationalAccelerometer = NULL;
 Accelerometer* RobotMap::accel = NULL;
@@ -73,6 +78,7 @@ void RobotMap::init() {
 	chassisBackLeftEncoder->SetPIDSourceParameter(Encoder::kRate);
 	chassisBackRightEncoder->SetPIDSourceParameter(Encoder::kRate);
 
+	chassisLeftProximitySensor = new DigitalInput(CHASSIS_PROXIMITY_SENSOR_LEFT);
 
 
 	chassisFrontLeftMotorPID = new PIDController(CHASSIS_P_FRONT_LEFT, CHASSIS_I_FRONT_LEFT, CHASSIS_D_FRONT_LEFT
@@ -83,6 +89,13 @@ void RobotMap::init() {
 			,CHASSIS_F_BACK_RIGHT,chassisBackRightEncoder, chassisBackRightMotor);
 	chassisBackLeftMotorPID = new PIDController(CHASSIS_P_BACK_LEFT, CHASSIS_I_BACK_LEFT, CHASSIS_D_BACK_LEFT
 				,CHASSIS_F_BACK_LEFT,chassisBackLeftEncoder, chassisBackLeftMotor);
+	winchEncoder = new Encoder(WINCH_ENCODER_PORT_1, WINCH_ENCODER_PORT_2, false, Encoder::k2X);
+	winchEncoder->SetPIDSourceParameter(Encoder::kDistance);
+
+	winchEncoderPID = new PIDController(WINCH_P, WINCH_I, WINCH_D, winchEncoder, winchtalon);
+	winchEncoderPID->SetPercentTolerance(0.8);
+	winchEncoderPID->SetOutputRange(-1,1);
+	winchEncoderPID->SetInputRange(-1000,10000);
 
 	navigationalAccelerometer = new BuiltInAccelerometer();
 	winchtalon = new Talon(4);

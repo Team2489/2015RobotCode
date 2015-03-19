@@ -5,6 +5,9 @@ Winch::Winch() :
 		Subsystem("Winch")
 {
 	m_winchTalon = RobotMap::winchtalon;
+	m_encoder = RobotMap::winchEncoder;
+	m_encoder->Reset();
+	m_totesHighPID = RobotMap::winchEncoderPID;
 }
 
 void Winch::InitDefaultCommand()

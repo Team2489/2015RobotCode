@@ -33,6 +33,9 @@ void DriveWithJoysticks::Execute() {
 	float rotation = Robot::oi->getm_leftJoystick()->GetX();
 
 	Robot::chassis->MecanumDrive_Cartesian(x, y, rotation);
+
+	bool isTriggered = Robot::chassis->ProximitySensorIsTriggered();
+	std::cout << std::boolalpha << isTriggered << std::endl;
 }
 
 // Make this return true when this Command no longer needs to run execute()
