@@ -10,6 +10,7 @@ public:
 	Talon *m_winchTalon;
 	Encoder *m_encoder;
 	PIDController *m_totesHighPID;
+	PIDController *m_balancePID;
 	Winch();
 	void MoveUp(float speed);
 	void MoveDown(float speed);

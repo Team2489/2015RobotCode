@@ -1,6 +1,6 @@
 #include "WinchTotesHigh.h"
 
-WinchTotesHigh::WinchTotesHigh(int totesHigh)
+WinchTotesHigh::WinchTotesHigh(double totesHigh)
 {
 	// Use Requires() here to declare subsystem dependencies
 	Requires(Robot::winch);
@@ -10,8 +10,10 @@ WinchTotesHigh::WinchTotesHigh(int totesHigh)
 // Called just before this Command runs the first time
 void WinchTotesHigh::Initialize()
 {
+	Robot::winch->m_totesHighPID->SetOutputRange(-0.5,0.5);
+
 	Robot::winch->m_totesHighPID->Enable();
-	Robot::winch->m_totesHighPID->SetSetpoint(WINCH_PULSES_PER_TOTE*m_totesHigh);
+	Robot::winch->m_totesHighPID->SetSetpoint(WINCH_PULSES_PER_TOTE*(-m_totesHigh));
 }
 
 // Called repeatedly when this Command is scheduled to run

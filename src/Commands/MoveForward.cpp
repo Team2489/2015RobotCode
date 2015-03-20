@@ -17,6 +17,8 @@ MoveForward::MoveForward(double distance)
 // Called just before this Command runs the first time
 void MoveForward::Initialize()
 {
+	Robot::chassis->m_backRightEncoder->Reset();
+
 	m_straightPID->SetOutputRange(-0.75,0.75);
 	m_straightPID->SetPercentTolerance(0.5);
 	m_straightPID->SetInputRange(-10000,10000);

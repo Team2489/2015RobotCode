@@ -35,7 +35,7 @@ void DriveWithJoysticks::Execute() {
 	Robot::chassis->MecanumDrive_Cartesian(x, y, rotation);
 
 	bool isTriggered = Robot::chassis->ProximitySensorIsTriggered();
-	std::cout << std::boolalpha << isTriggered << std::endl;
+	std::cout << Robot::winch->m_encoder->GetDistance() << std::endl;
 }
 
 // Make this return true when this Command no longer needs to run execute()

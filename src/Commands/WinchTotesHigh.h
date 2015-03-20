@@ -7,9 +7,9 @@
 class WinchTotesHigh: public Command
 {
 private:
-	int m_totesHigh;
+	double m_totesHigh;
 public:
-	WinchTotesHigh(int totesHigh);
+	WinchTotesHigh(double totesHigh);
 	void Initialize();
 	void Execute();
 	bool IsFinished();

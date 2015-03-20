@@ -67,7 +67,11 @@
 #define WINCH_P 0.01
 #define WINCH_I 0
 #define WINCH_D 0
-#define WINCH_PULSES_PER_TOTE 	100.0
+#define WINCH_PULSES_PER_TOTE 	1000.0
+
+#define WINCH_BALANCE_P 0.0003
+#define WINCH_BALANCE_I 0
+#define WINCH_BALANCE_D 0
 
 #define STOP_ALIGN_BUTTON 11
 
@@ -114,6 +118,7 @@ public:
 
 	static Encoder* winchEncoder;
 	static PIDController* winchEncoderPID;
+	static PIDController* winchBalancePID;
 
 	static void init();
 };

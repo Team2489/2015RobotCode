@@ -1,5 +1,6 @@
 #include "Winch.h"
 #include "../RobotMap.h"
+#include "Commands/WinchStay.h"
 
 Winch::Winch() :
 		Subsystem("Winch")
@@ -8,10 +9,12 @@ Winch::Winch() :
 	m_encoder = RobotMap::winchEncoder;
 	m_encoder->Reset();
 	m_totesHighPID = RobotMap::winchEncoderPID;
+	m_balancePID = RobotMap::winchBalancePID;
 }
 
 void Winch::InitDefaultCommand()
 {
+	SetDefaultCommand(new WinchStay());
 	// Set the default command for a subsystem here.
 	//SetDefaultCommand(new MySpecialCommand());
 }

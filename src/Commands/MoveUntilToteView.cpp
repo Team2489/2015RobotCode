@@ -15,13 +15,13 @@ void MoveUntilToteView::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void MoveUntilToteView::Execute()
 {
-	Robot::chassis->MecanumDrive_Cartesian(0, 0.5, 0);
+	Robot::chassis->MecanumDrive_Cartesian(0, -0.2, 0);
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool MoveUntilToteView::IsFinished()
 {
-	return !Robot::chassis->m_leftProximitySensor->Get();
+	return (!(Robot::chassis->m_leftProximitySensor->Get()) || Robot::oi->m_gamePadButtonX->Get());
 }
 
 // Called once after isFinished returns true
@@ -34,5 +34,5 @@ void MoveUntilToteView::End()
 // subsystems is scheduled to run
 void MoveUntilToteView::Interrupted()
 {
-
+	End();
 }

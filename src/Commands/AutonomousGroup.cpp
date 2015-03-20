@@ -10,13 +10,13 @@ AutonomousGroup::AutonomousGroup()
 {
 	AddSequential(new WinchTotesHigh(1));
 	AddSequential(new TurnDegrees(-40));
-	AddSequential(new MoveForward(18.5));
+	AddSequential(new MoveForward(-18.5));
 	AddSequential(new TurnDegrees(40));
 	AddSequential(new MoveUntilToteView());
 	AddSequential(new WinchTotesHigh(0));
 	AddSequential(new WinchTotesHigh(1));
 	AddSequential(new TurnDegrees(-40));
-	AddSequential(new MoveForward(18.5));
+	AddSequential(new MoveForward(-18.5));
 	AddSequential(new TurnDegrees(40));
 	AddSequential(new MoveUntilToteView());
 	AddSequential(new WinchTotesHigh(0));
