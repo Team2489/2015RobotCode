@@ -60,7 +60,7 @@ void Robot::RobotInit() {
 	teleopCommand = new DriveWithJoysticks();
 
 	CameraServer::GetInstance()->SetQuality(30);
-	CameraServer::GetInstance()->StartAutomaticCapture("cam0");
+	CameraServer::GetInstance()->StartAutomaticCapture("cam1");
   }
 
 /**
