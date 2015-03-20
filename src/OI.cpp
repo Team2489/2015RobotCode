@@ -61,17 +61,19 @@ OI::OI() {
 	m_gamePadButtonY = new JoystickButton(m_gamepad, 4);
 	m_gamePadButtonX = new JoystickButton(m_gamepad, 1);
 	m_gamePadButtonB = new JoystickButton(m_gamepad, 3);
-
 	m_leftButton10 = new JoystickButton(m_leftJoystick, 10);
+
 
 	// Joystick button use
 	m_rightButton10->WhenPressed(new CenterOnTote());
 
 	// GamePad button use
+
 	m_gamePadButtonA->WhileHeld(new WinchUpDown(false, 0.2, .2));	//goes down
 	m_gamePadButtonY->WhileHeld(new WinchUpDown(true, 0.2, .3));	//goes up
 	m_leftButton10->WhenPressed(new MoveUntilToteView());	//Moves until proximity sensor
 	m_gamePadButtonB->WhenPressed(new WinchTotesHigh(0.3445));
+
 	// LaunchPad button initialization
 //	m_easyButton = new JoystickButton(m_launchPad, 1);
 

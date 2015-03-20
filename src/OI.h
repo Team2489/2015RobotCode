@@ -28,9 +28,8 @@ private:
 	JoystickButton* m_rightButton10;
 	JoystickButton* m_gamePadButtonA;
 	JoystickButton* m_gamePadButtonY;
-	JoystickButton* m_gamePadButtonB;
 	JoystickButton* m_leftButton10;
-
+	JoystickButton* m_gamePadButtonB;
 
 public:
 	JoystickButton* m_gamePadButtonX;
