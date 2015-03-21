@@ -23,7 +23,6 @@ void WinchUpDown::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void WinchUpDown::Execute()
 {
-
 	if(m_isUp) {
 		Robot::winch->MoveUp(m_power);
 	} else {

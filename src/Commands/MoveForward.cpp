@@ -6,9 +6,9 @@ MoveForward::MoveForward(double distance)
 
 	Requires(Robot::chassis);
 	Robot::chassis->m_backRightEncoder->Reset();
-	Robot::chassis->m_backRightEncoder->SetPIDSourceParameter(Encoder::kDistance);
 	Robot::chassis->m_backRightEncoder->SetDistancePerPulse(1.0);
-	Robot::chassis->m_backRightEncoder->Reset();
+	Robot::chassis->m_backRightEncoder->SetPIDSourceParameter(Encoder::kDistance);
+
 	m_distance = distance;
 	m_straightOput = new MoveStraightPIDOutput(Robot::chassis->drive);
 	m_straightPID = new PIDController(AUTO_P_DISTANCE, AUTO_I_DISTANCE, AUTO_D_DISTANCE, Robot::chassis->m_backRightEncoder, m_straightOput);
@@ -18,6 +18,8 @@ MoveForward::MoveForward(double distance)
 void MoveForward::Initialize()
 {
 	Robot::chassis->m_backRightEncoder->Reset();
+
+	Robot::chassis->m_backRightEncoder->SetPIDSourceParameter(Encoder::kDistance);
 
 	m_straightPID->SetOutputRange(-0.75,0.75);
 	m_straightPID->SetPercentTolerance(0.5);

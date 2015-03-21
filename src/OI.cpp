@@ -64,6 +64,7 @@ OI::OI() {
 	m_leftButton10 = new JoystickButton(m_leftJoystick, 10);
 
 
+
 	// Joystick button use
 	m_rightButton10->WhenPressed(new CenterOnTote());
 
@@ -115,6 +116,12 @@ int OI::GetElevatorPower() {
 	elevatorPower = elevatorPower * 100;
 
 	return static_cast<int>(elevatorPower);
+}
+
+float OI::GetElevatorPowerGamepad() {
+	float elevateGamepadPower = m_gamepad->GetY();
+
+	return elevateGamepadPower;
 }
 
 void OI::SetLEDState(bool value) {
