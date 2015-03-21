@@ -44,6 +44,7 @@ public:
 
 	void SetLEDState(bool value);
 	int GetElevatorPower();
+	float GetElevatorPowerGamepad();
 	void PrintElevatorPowerValue();
 	std::string NumberToStringElevatorPower();
 	int GetAutonomousState();
