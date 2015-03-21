@@ -30,6 +30,7 @@ void DriveWithJoysticks::Initialize() {
 void DriveWithJoysticks::Execute() {
 	float y = Robot::oi->getm_rightJoystick()->GetY();
 	float x = Robot::oi->getm_rightJoystick()->GetX();
+//	float crouch = (Robot::oi->getm_rightJoystick()->GetZ()+1)/2;
 	float rotation = Robot::oi->getm_leftJoystick()->GetX();
 
 	Robot::chassis->MecanumDrive_Cartesian(x, y, rotation);
