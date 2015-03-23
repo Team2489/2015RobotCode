@@ -13,8 +13,12 @@
 #define AUTONOMOUS_COMMAND_H
 
 
-#include "Commands/Subsystem.h"
-#include "../Robot.h"
+#include <Commands/Subsystem.h>
+#include <Robot.h>
+#include <RotatePIDOutput.h>
+#include <MoveStraightPIDOutput.h>
+
+#include <iostream>
 
 /**
  *
@@ -22,6 +26,13 @@
  * @author ExampleAuthor
  */
 class AutonomousCommand: public Command {
+private:
+	RotatePIDOutput *m_rotateOput;
+	MoveStraightPIDOutput *m_straightOput;
+
+	PIDController *m_turnPID;
+	PIDController *m_straightPID;
+	bool m_toteFinished;
 public:
 	AutonomousCommand();
 	virtual void Initialize();

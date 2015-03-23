@@ -6,9 +6,11 @@
 
 class Winch: public Subsystem
 {
-private:
-	Talon *m_winchTalon;
 public:
+	Talon *m_winchTalon;
+	Encoder *m_encoder;
+	PIDController *m_totesHighPID;
+	PIDController *m_balancePID;
 	Winch();
 	void MoveUp(float speed);
 	void MoveDown(float speed);
